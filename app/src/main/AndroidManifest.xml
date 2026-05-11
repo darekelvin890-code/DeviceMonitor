@@ -43,6 +43,6 @@
             android:exported="false"
             android:foregroundServiceType="dataSync">
         </service>
-
+<uses-permission android:name="android.permission.INTERNET" />
     </application>
 </manifest>
