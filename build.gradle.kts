@@ -2,4 +2,6 @@ plugins {
     id("com.android.application") version "8.2.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 }
-implementation("org.nanohttpd:nanohttpd:2.3.1")
+dependencies {
+    implementation("org.nanohttpd:nanohttpd:2.3.1")
+}
