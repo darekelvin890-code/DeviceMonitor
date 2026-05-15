@@ -39,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
             }
             Toast.makeText(this, "Notification service started", Toast.LENGTH_SHORT).show();
         });
+        // Start the local HTTP server for live view
+        new Thread(() -> {
+            try {
+                LogServer logServer = new LogServer(this);
+                logServer.start();
+                runOnUiThread(() ->
+                    Toast.makeText(this, "Live view at http://localhost:8080", Toast.LENGTH_LONG).show()
+                );
+            } catch (Exception e) {
+                e.printStackTrace();
+                runOnUiThread(() ->
+                    Toast.makeText(this, "Server failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
+            }
+        }).start();
     }
 
     private void requestAllPermissions() {
